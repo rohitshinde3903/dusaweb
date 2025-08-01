@@ -1,6 +1,6 @@
 // components/HeroSection.tsx
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 // Define the props for the HeroSection component (optional for this simple case, but good practice)
 interface HeroSectionProps {
@@ -9,28 +9,29 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = () => {
   // Animation variants for Framer Motion
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3, // Delay children animations
-      },
+  const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3, // Delay children animations
     },
-  };
+  },
+};
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: 'spring',
-        damping: 10,
-        stiffness: 100,
-      },
+// Define the variants for the individual child items
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      damping: 10,
+      stiffness: 100,
     },
-  };
+  },
+};
 
   return (
     <section className="relative bg-black text-white min-h-screen flex items-center justify-center overflow-hidden py-16 px-4 sm:px-6 lg:px-8">
